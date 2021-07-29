@@ -1,0 +1,52 @@
+table {
+  border: 1px solid black;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+th {
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+}
+
+.img {
+  width: 128px;
+  height: 128px;
+}
+
+.header {
+  background-color: gray;
+  color: white;
+}
+
+.textButton {
+  margin: 10px;
+  height: 20px;
+  width: 40px;
+  text-align: center;
+}
+
+.buttonGet {
+  height: auto;
+  width: auto;
+  padding: 4px 20px 4px 20px;
+  margin-right: 10px;
+}
+
+.buttonDelete {
+  background-image: url("pngwing.com.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.paramsDelete {
+  height: 10px;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+}
