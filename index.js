@@ -1,123 +1,25 @@
 
-// fetch('https://randomuser.me/api/?results=20')
-// .then((response) => {
-//     return response.json()
-// })
-// .then((results) => {
-//     return results
-//     });
 
-async function getResults('https://randomuser.me/api/?results=20'){
-const response = await fetch('')
+async function getResults(){
+const response = await fetch('https://randomuser.me/api/?results=20')
 const json = await response.json()
 return json
 }
-getResults()
 
-getResults()
-.then((data) => {
-    return console.log(data)
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// async function buyPotatoes(){
-//    return new Promise(resolve => setTimeout(() =>{resolve('картошка')}, Math.random() * 1000))
-// }
-
-// function getMashPotatoes(product){
-//     if(product){
-//         return 'картошка пюре'
-//     }else{
-//         throw new Error('картошки нет')
-//     }
- 
-// }
-
-// buyPotatoes()
-// .then((smth) => {
-//  getMashPotatoes(smth)
-//  return undefined;
-// })
-// .then((pureshka) =>{
-//    console.log(pureshka)
-// })
-
-// fetch('https://dog.ceo/api/breeds/image/random')
-
-// .then((response) => {
-//     return response.json()
-// })
-
+// getResults()
 // .then((data) => {
-//     return data.message
+//     console.log(data);
+//     let arr = data.results;
+//     console.log(arr)
 // })
 
-// .then ((image) => {
-//     let photo = document.createElement('img');
-//     photo.src = image;
-//     document.querySelector('body').appendChild(photo)
-// })
+document.querySelector('.buttonGet').onclick = function(){
+    const url = document.querySelector('.textButton').value
+    console.log(url)
+    getResults()
+    .then((data) => {
+        console.log(data);
+        let arr = data.results;
+        console.log(arr)
+    })
+}
