@@ -50,3 +50,16 @@ td {
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
 }
+
+table {
+  border: 1px solid black;
+}
+tr {
+  width: 128px;
+  height: 128px;
+}
+
+td {
+  width: 128px;
+  height: 128px;
+}
