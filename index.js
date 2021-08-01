@@ -30,6 +30,31 @@ function createTable(parent, arr) {
 
   for (let i = 0; i < cols; i++) {
     const th = document.createElement("th");
+
+    switch (i) {
+      case 0:
+        th.innerHTML = "photo";
+        break;
+      case 1:
+        th.innerHTML = "name";
+        break;
+      case 2:
+        th.innerHTML = "age";
+        break;
+      case 3:
+        th.innerHTML = "from";
+        break;
+    }
+
+    // if (i == 0) {
+    //   th.innerHTML = "photo";
+    // } else if (i == 1) {
+    //   th.innerHTML = "name";
+    // } else if (i == 2) {
+    //   th.innerHTML = "age";
+    // } else {
+    //   th.innerHTML = "from";
+    // }
     thr.appendChild(th);
   }
 
@@ -38,11 +63,42 @@ function createTable(parent, arr) {
 
   const tbody = document.createElement("tbody");
 
-  for (let j = 0; j < rows; j++) {
+  for (let user of arr) {
+    console.log(user);
     const tr = document.createElement("tr");
 
     for (let i = 0; i < cols; i++) {
       const td = document.createElement("td");
+
+      switch (i) {
+        case 0:
+          const img = document.createElement("img");
+          img.src = user.picture.large;
+          td.appendChild(img);
+          break;
+        case 1:
+          td.innerHTML = `${user.name.title} ${user.name.first} ${user.name.last}`;
+          break;
+        case 2:
+          td.innerHTML = user.dob.age;
+          break;
+        case 3:
+          td.innerHTML = `${user.location.country}, ${user.location.city}`;
+          break;
+      }
+
+      // if (i == 0) {
+      //   const img = document.createElement("img");
+      //   img.src = user.picture.large;
+      //   td.appendChild(img);
+      // } else if (i == 1) {
+      //   td.innerHTML = `${user.name.title} ${user.name.first} ${user.name.last}`;
+      // } else if (i == 2) {
+      //   td.innerHTML = user.dob.age;
+      // } else {
+      //   td.innerHTML = `${user.location.country}, ${user.location.city}`;
+      // }
+
       tr.appendChild(td);
     }
 
