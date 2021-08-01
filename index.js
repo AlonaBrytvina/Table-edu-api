@@ -5,24 +5,21 @@ async function getResults(quantity) {
   const json = await response.json();
   return json;
 }
-const elem = document.querySelector(".elem");
+const tableContainer = document.querySelector(".tableContainer");
 
 document.querySelector(".buttonGet").onclick = function () {
-  const url = document.querySelector(".textButton").value;
-  console.log(url);
-  getResults(url).then((data) => {
-    console.log(data);
-    let arr = data.results;
-    createTable(elem, arr);
+  const quantity = document.querySelector(".textField").value;
+
+  getResults(quantity).then((data) => {
+    createTable(tableContainer, data.results, 4);
   });
 };
 
 document.querySelector(".buttonDelete").onclick = function () {
-  elem.innerHTML = "";
+  tableContainer.innerHTML = "";
 };
 
-function createTable(parent, arr) {
-  const cols = 4;
+function createTable(parent, arr, cols) {
   const rows = arr.length;
   const table = document.createElement("table");
   const thead = document.createElement("thead");
@@ -33,16 +30,16 @@ function createTable(parent, arr) {
 
     switch (i) {
       case 0:
-        th.innerHTML = "photo";
+        th.innerHTML = "Photo";
         break;
       case 1:
-        th.innerHTML = "name";
+        th.innerHTML = "Name";
         break;
       case 2:
-        th.innerHTML = "age";
+        th.innerHTML = "Age";
         break;
       case 3:
-        th.innerHTML = "from";
+        th.innerHTML = "From";
         break;
     }
 
@@ -64,7 +61,6 @@ function createTable(parent, arr) {
   const tbody = document.createElement("tbody");
 
   for (let user of arr) {
-    console.log(user);
     const tr = document.createElement("tr");
 
     for (let i = 0; i < cols; i++) {
@@ -77,16 +73,18 @@ function createTable(parent, arr) {
           td.appendChild(img);
           break;
         case 1:
-          td.innerHTML = `${user.name.title} ${user.name.first} ${user.name.last}`;
+          const { title, first, last } = user.name;
+          td.innerHTML = `${title} ${first} ${last}`;
           break;
         case 2:
           td.innerHTML = user.dob.age;
           break;
         case 3:
-          td.innerHTML = `${user.location.country}, ${user.location.city}`;
+          const { country, city } = user.location;
+          td.innerHTML = `${country}, ${city}`;
           break;
       }
-
+      // its for me
       // if (i == 0) {
       //   const img = document.createElement("img");
       //   img.src = user.picture.large;
@@ -108,7 +106,7 @@ function createTable(parent, arr) {
   table.appendChild(tbody);
   parent.appendChild(table);
 }
-
+// its for me
 //      const table = document.createElement('table');
 
 //      for (let i=0; i < rows; i++){
